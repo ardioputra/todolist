@@ -23,28 +23,24 @@ export default function ToDoList() {
         const input = document.createElement("input");
         input.setAttribute("type", "checkbox");
   
-        // Create a separate span element for the text content
         const textElement = document.createElement("span");
         textElement.textContent = inputBox?.value;
   
-        // Create a button for removing the task
         const removeButton = document.createElement("button");
         removeButton.textContent = "\u00d7";
         removeButton.addEventListener("click", () => removeTask(li));
-  
-        // Append elements to the list item
+
         li.appendChild(input);
         li.appendChild(textElement);
         li.appendChild(removeButton);
   
-        // Append the list item to the list container
         listContainer?.appendChild(li);
   
         input.addEventListener("change", handleCheckboxChange);
       }
   
       inputBox.value = "";
-      updateDoneCount(); // Update the Done count after adding a task
+      updateDoneCount(); 
     }
   
     function handleCheckboxChange() {
@@ -69,7 +65,7 @@ export default function ToDoList() {
     function removeTask(li: Node) {
       const listContainer = document.getElementById("list-container");
       listContainer?.removeChild(li);
-      updateDoneCount(); // Update the Done count after removing a task
+      updateDoneCount(); 
     }
   
     function handleEnterKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -81,9 +77,7 @@ export default function ToDoList() {
     return (
       <>
         <h1 className="p-6">To Do List</h1>
-        <ul id="list-container">
-          {/* List items will be dynamically added here */}
-        </ul>
+        <ul id="list-container"></ul>
         <hr />
         <h2 className="text-bold text-2xl p-6"> Count: {doneCount} </h2>
         <div className="text-left">
